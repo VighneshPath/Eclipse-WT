@@ -1,0 +1,12 @@
+USE book_proj;
+
+CREATE TABLE book(
+isbn BIGINT,
+title VARCHAR(64),
+author VARCHAR(64),
+price FLOAT);
+
+INSERT INTO book VALUES(1231231231231, 'Harry Potter', 'JK Rowling', 1234);
+INSERT INTO book VALUES(3943040329123, 'Sherlock Holmes', 'Conan Doyle', 1939,12);
+INSERT INTO book VALUES(1111111111111, 'Crime and Punishment', 'Fyodor Dostoevsky', 1010.4);
+INSERT INTO book VALUES(1111111111112, 'The Alchemist', 'Paulo Choelo', 500.4);
