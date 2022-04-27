@@ -1,0 +1,35 @@
+1) Create Database
+2) Insert into database
+3) New Dynamic Web Project
+4) Create new File - Servlet
+5) Add Respective jars to tomcat lib directory(jdbc.mysql and servlet)
+6) void doGet(request, response){
+	response.setContentType("text/html");
+	PrintWriter out = response.getWriter();
+	out.println("<html>...");
+	
+	final String db_url = "jdbc:mysql://localhost:3306/book_proj";
+	final String db_uname = "root";
+	final String db_pass = "nerf";
+	final String query = "SELECT * From book;";
+	
+	out.println("<table>...");
+	
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con = DriverManager.getConnection(db_url, db_uname, db_pass);
+	
+	Statement st = con.createStatement();
+	ResultSet rs = st.executeQuery(query);
+
+	while(rs.next()){
+		long isbn = rs.getLong("isbn");
+		String title = rs.getString("title");
+		String author = rs.getString("author");
+		float price = rs.getFloat("price);
+		
+		out.println("<td>..."+title+"</td");
+	}
+	out.println("</table>...</html>...");
+	
+	con.close();
+7) Run as Web Server.
